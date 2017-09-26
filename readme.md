@@ -1,3 +1,4 @@
+![alt text](diagrams/pidclass.jpg "Class diagram for pidcont")
 # C++ Boilerplate
 [![Build Status](https://travis-ci.org/bhargavipatel/SDRController.svg?branch=master)](https://travis-ci.org/bhargavipatel/SDRController)
 [![Coverage Status](https://coveralls.io/repos/github/bhargavipatel/SDRController/badge.svg)](https://coveralls.io/github/bhargavipatel/SDRController)
