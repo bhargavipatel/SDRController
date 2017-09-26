@@ -2,6 +2,7 @@
  * @breif: Main
  * @author Bhargavi
  * @version 1.0
+ * @Copyright UMD
  */
 #include "../include/PID.hpp"
 #include <vector>
@@ -12,16 +13,13 @@
  * @return
  */
 double computeconverg() {
-	
-  pidcont computenew_velo; //will check if the calculated velocity is comparable to traget velocity, convergence test
+    pidcont computenew_velo;  // will check if the calculated velocity is comparable to traget velocity, convergence test
 }
-
 /*
  * @brief 
  * @return 
  */
 double verifyiter() {
-  pidcont computenew_velo;
-
-  // Return after xyz iteration
+    pidcont computenew_velo;
+    // Return after xyz iteration
 }
