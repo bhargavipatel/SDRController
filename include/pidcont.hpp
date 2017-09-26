@@ -24,7 +24,7 @@ class pidcont {
 	pidcont(double kp,double ki,double kd);
 	~pidcont();
 	
-	double computenew_velo(double target,double actualvelo,double kp,double ki,double kd)
+	double computenew_velo(double target,double actualvelo,double kp,double ki,double kd);
    
 };
 
