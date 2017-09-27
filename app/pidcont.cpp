@@ -10,15 +10,30 @@ pidcont::pidcont() {
 }
 pidcont::~pidcont() {
 }
-double pidcont::computenew_velo(double targetvelo, double actuvelo, double Kp_input, double Ki_input, double Kd_input) {
-  double someconst = 3.1;
-  return someconst;
-  //targetvelo = 10;
-  //actuvelo = 2;
-  //double error1 = targetvelo-actuvelo;
-  //return(Kp_input*error1 + Kd_input*error1 + Ki_input*error1);
-  //-2.325
+
+/**
+ * @brief This function is to compute the actual velocity after 1 second
+ * @author: Shaotu Jia
+ * @param targetvelo This is the target velocity
+ * @param actualvelo This is the actual velocity at current time
+ * @param Kp_input This is the gain for porportional term
+ * @param Ki_input This is the gain for integration term
+ * @param Kd_input This is the gain for differential term
+ */
+double pidcont::computenew_velo(double targetvelo, double actualvelo, double Kp_input, double Ki_input, double Kd_input) {
+    double error_current = 0;
+    double error_integral = 0;
+    double error_last = error_current;
+    double error_diff = 0;
+    double actual = actualvelo;
+
+    for (int i = 0; i <= 1/time; i++) {
+        error_current = targetvelo-actual;
+        error_integral += (error_current - error_last)*time;
+        error_diff = (error_current - error_last)/time;
+        actual = Kp_input*error_current + Ki_input*error_integral/time + Kd_input*error_diff*time;
+        error_last = error_current;
+    }
+    return actual;
+    //return 1;
 }
-
-
-

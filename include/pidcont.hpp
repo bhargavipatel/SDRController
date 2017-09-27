@@ -9,6 +9,10 @@
 
 #include <iostream>
 #include <cmath>
+
+/**
+ * @brief This class is for PID controller using for constant target velocity
+ */
 class pidcont {
  private:
      double Kp = 0.5;
@@ -17,7 +21,7 @@ class pidcont {
      float perr = 0;
      float err = 0;
  public:
-    double time = 0.0001;
+    double time = 0.001;
     pidcont();
     pidcont(double kp, double ki, double kd);
     ~pidcont();
