@@ -23,7 +23,7 @@ class pidcont {
  public:
     double time = 0.001;
     pidcont();
-    pidcont(double kp, double ki, double kd);
+    pidcont(double kp, double ki, double kd):Kp(kp), Ki(ki), Kd(kd){};
     ~pidcont();
     double computenew_velo(double target, double actualvelo, double kp, double ki, double kd);
 };

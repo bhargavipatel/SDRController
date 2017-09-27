@@ -20,7 +20,9 @@ pidcont::~pidcont() {
  * @param Ki_input This is the gain for integration term
  * @param Kd_input This is the gain for differential term
  */
-double pidcont::computenew_velo(double targetvelo, double actualvelo, double Kp_input, double Ki_input, double Kd_input) {
+double pidcont::computenew_velo(double targetvelo, double actualvelo, \
+                                double Kp_input, double Ki_input, \
+                                double Kd_input) {
     double error_current = 0;
     double error_integral = 0;
     double error_last = error_current;
@@ -30,10 +32,11 @@ double pidcont::computenew_velo(double targetvelo, double actualvelo, double Kp_
     for (int i = 0; i <= 1/time; i++) {
         error_current = targetvelo-actual;
         error_integral += (error_current - error_last)*time;
-        error_diff = (error_current - error_last)/time;
-        actual = Kp_input*error_current + Ki_input*error_integral/time + Kd_input*error_diff*time;
+        error_diff = error_current - error_last;
+        double change = Kp_input*error_current + Ki_input*error_integral\
+            + Kd_input*error_diff;
+        actual += change;
         error_last = error_current;
     }
     return actual;
-    //return 1;
 }

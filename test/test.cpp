@@ -4,31 +4,27 @@
  * @version 1.0
  */
 #include <gtest/gtest.h>
-#include "../include/pidcont.hpp"
-// #include "../include/pidcont_test.hpp"
-// #include "../app/pidcont.cpp"
+#include <memory>
 
-/*
- * @brief 
+/**
+ * @brief This is to test constructor for configuration
+ * @author:Shaotu Jia
  */
-//Kp = 0.5;Ki = 0.05;Kd = 1;perr = 0;err = 0;
-//targetvelo = 10
-//actualvelo = 2
-//computenew_velo(double targetvelo, double actuvelo, double Kp_input, double Ki_input, double Kd_input) {
-
-TEST(firsttest, unity) {
-  EXPECT_EQ(1,1);
+#define private public
+#include "../include/pidcont.hpp"
+TEST(firstest, unitTest1) {
+  auto controller = std::make_unique<pidcont>(0, 0, 0);
+  EXPECT_EQ(controller->Kd, 0);
+  EXPECT_EQ(controller->Ki, 0);
+  EXPECT_EQ(controller->Kp, 0);
 }
+#undef private
 
 /*
  * @brief Test if the integral element is behaving correctly
  */
 TEST(secondtest, unitTest2) {
   pidcont a;
-  float temp = a.computenew_velo(10, 2, 0.5, 0.05, 1);	
-  EXPECT_FLOAT_EQ(temp, 12.4);
-  //EXPECT_EQ(1,1);
-}  
-TEST(thirdtest,unittest3) {
-    EXPECT_EQ(1,1);
+  float temp = a.computenew_velo(10, 2, 0.5, 0.05, 0.01);
+  EXPECT_FLOAT_EQ(temp, 10);
 }
