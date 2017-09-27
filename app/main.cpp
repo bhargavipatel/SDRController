@@ -9,12 +9,12 @@
 /**
  * @brief      Main Function
  *
- * @return     
+ * @return
  */
 int main() {
   pidcont obj1;
-  std::cout << "Calculated velocity"
-    << obj1.computenew_velo(5, 6.5, 0.5, 0.05, 1)
+  std::cout << "Calculated velocity\n"
+    << obj1.computenew_velo(5, 6.5, 0.5, 0.05, 0.01)
     << std::endl;
   return 0;
 }
